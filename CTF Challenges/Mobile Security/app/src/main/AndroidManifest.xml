@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="false"
+        android:label="Lost Utility"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Normal application screen -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+
+        <!--
+            INTENTIONAL CTF VULNERABILITY
+
+            This activity is exported and can be launched
+            externally through ADB.
+        -->
+
+        <activity
+            android:name=".FlagActivity"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.cyberarena.SHOW_FLAG" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyber Arena | CTF Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>⬡</span> CYBER <b>ARENA</b>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="{{ url_for('challenges') }}">Challenges</a>
+
+            <a href="#domains">
+                Domains
+            </a>
+
+            <a href="#leaderboard">
+                Leaderboard
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+        <!-- LOGIN / REGISTER BUTTONS -->
+        <div class="nav-buttons">
+
+            <a href="{{ url_for('login') }}"
+               class="login-btn">
+                Login
+            </a>
+
+            <a href="{{ url_for('register') }}"
+               class="register-btn">
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <p class="small-title">
+                THINK &nbsp; | &nbsp;
+                EXPLORE &nbsp; | &nbsp;
+                SOLVE &nbsp; | &nbsp;
+                WIN
+            </p>
+
+            <h1>
+                CYBER <span>ARENA</span>
+            </h1>
+
+            <p class="hero-description">
+                Sharpen your cybersecurity skills.
+                Solve challenges. Capture flags.
+                Climb the leaderboard.
+            </p>
+
+            <div class="hero-buttons">
+
+                <!-- START CTF -->
+                <a href="{{ url_for('register') }}"
+                   class="start-btn">
+                    ▶ START CTF
+                </a>
+
+                <!-- LOGIN -->
+                <a href="{{ url_for('login') }}"
+                   class="outline-btn">
+                    LOGIN
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= TERMINAL ================= -->
+        <div class="hero-visual">
+
+            <div class="terminal-box">
+
+                <div class="terminal-top">
+                    <span>●</span>
+                    <span>●</span>
+                    <span>●</span>
+                </div>
+
+                <div class="terminal-text">
+
+                    <p>
+                        root@cyber-arena:~$ ./start_ctf
+                    </p>
+
+                    <p>
+                        &gt; Initializing arena...
+                    </p>
+
+                    <p>
+                        &gt; Loading challenges...
+                    </p>
+
+                    <p>
+                        &gt; Systems ready.
+                    </p>
+
+                    <p class="red-text">
+                        &gt; FLAG IS JUST THE BEGINNING.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DOMAINS ================= -->
+    <section class="domains"
+             id="domains">
+
+        <div class="section-heading">
+
+            <p>
+                EXPLORE • LEARN • MASTER
+            </p>
+
+            <h2>
+                CTF <span>DOMAINS</span>
+            </h2>
+
+            <div class="line"></div>
+
+            <p class="section-description">
+                Choose your domain.
+                Solve challenges.
+                Become the best.
+            </p>
+
+        </div>
+
+
+        <div class="domain-grid">
+
+
+            <!-- ================= WEB EXPLOITATION ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='web-exploitation') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ◈
+                </div>
+
+                <h3>
+                    WEB EXPLOITATION
+                </h3>
+
+                <p>
+                    Find vulnerabilities in web applications and exploit them.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= CRYPTOGRAPHY ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='cryptography') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ♙
+                </div>
+
+                <h3>
+                    CRYPTOGRAPHY
+                </h3>
+
+                <p>
+                    Break codes and uncover hidden secrets.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= DIGITAL FORENSICS ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='digital-forensics') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ⌕
+                </div>
+
+                <h3>
+                    DIGITAL FORENSICS
+                </h3>
+
+                <p>
+                    Analyze evidence and uncover the truth.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= OSINT ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='osint') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ◈
+                </div>
+
+                <h3>
+                    OSINT
+                </h3>
+
+                <p>
+                    Investigate information from open sources.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= REVERSE ENGINEERING ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='reverse-engineering') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    REVERSE ENGINEERING
+                </h3>
+
+                <p>
+                    Understand programs and uncover their secrets.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= PWN / BINARY ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='pwn-binary') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ▣
+                </div>
+
+                <h3>
+                    PWN / BINARY
+                </h3>
+
+                <p>
+                    Explore memory and binary exploitation.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= STEGANOGRAPHY ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='steganography') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ▧
+                </div>
+
+                <h3>
+                    STEGANOGRAPHY
+                </h3>
+
+                <p>
+                    Find information hidden inside media.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= MOBILE SECURITY ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='mobile-security') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ▯
+                </div>
+
+                <h3>
+                    MOBILE SECURITY
+                </h3>
+
+                <p>
+                    Analyze mobile applications and weaknesses.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= BLOCKCHAIN / WEB3 ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='blockchain-web3') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ◇
+                </div>
+
+                <h3>
+                    BLOCKCHAIN / WEB3
+                </h3>
+
+                <p>
+                    Investigate smart contracts and blockchain.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- ================= MISCELLANEOUS ================= -->
+            <a href="{{ url_for('challenge_by_slug', slug='miscellaneous') }}"
+               class="domain-card">
+
+                <div class="icon">
+                    ✦
+                </div>
+
+                <h3>
+                    MISCELLANEOUS
+                </h3>
+
+                <p>
+                    Programming, encoding and unexpected puzzles.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="how-it-works"
+             id="how-it-works">
+
+        <div class="section-heading">
+
+            <p>
+                YOUR JOURNEY
+            </p>
+
+            <h2>
+                HOW IT <span>WORKS</span>
+            </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <!-- STEP 01 -->
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    REGISTER
+                </h3>
+
+                <p>
+                    Create your Cyber Arena account.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 02 -->
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    CHOOSE
+                </h3>
+
+                <p>
+                    Select a CTF domain and challenge.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 03 -->
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    SOLVE
+                </h3>
+
+                <p>
+                    Investigate and find the hidden flag.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 04 -->
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    CAPTURE
+                </h3>
+
+                <p>
+                    Submit the flag and earn points.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+
+        <div class="footer-logo">
+            CYBER <span>ARENA</span>
+        </div>
+
+        <p>
+            LEARN &nbsp; / &nbsp;
+            HACK &nbsp; / &nbsp;
+            SOLVE &nbsp; / &nbsp;
+            COMPETE
+        </p>
+
+        <p class="copyright">
+            © 2026 Cyber Arena.
+            Built for cybersecurity education.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

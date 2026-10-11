@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ challenge["title"] }} | Cyber Arena</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F3F4F4;
+            color: #2C2C2C;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 70px;
+            background: #2C2C2C;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 55px;
+            border-bottom: 3px solid #853953;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: #853953;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .8px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .logout {
+            background: #853953;
+            color: white;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logout:hover {
+            background: #612D53;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 55px 30px 80px;
+        }
+
+        .back {
+            display: inline-block;
+            color: #853953;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .back:hover {
+            color: #612D53;
+        }
+
+        .eyebrow {
+            color: #853953;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .main h1 {
+            font-size: 44px;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .intro {
+            color: #777777;
+            max-width: 720px;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* ================= CHALLENGE ================= */
+
+        .challenge {
+            background: white;
+            border: 1px solid #dddddd;
+            border-top: 4px solid #853953;
+        }
+
+        .challenge-top {
+            padding: 25px 28px;
+            border-bottom: 1px solid #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .challenge-label {
+            color: #853953;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .difficulty {
+            background: #eadde3;
+            color: #612D53;
+            padding: 7px 12px;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .challenge-body {
+            padding: 30px;
+        }
+
+        .challenge-body h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 760px;
+        }
+
+        /* ================= INFO ================= */
+
+        .info {
+            display: flex;
+            gap: 45px;
+            margin-top: 30px;
+            padding-top: 22px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .info-item small {
+            display: block;
+            color: #999999;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            margin-bottom: 6px;
+        }
+
+        .info-item strong {
+            font-size: 15px;
+            color: #2C2C2C;
+        }
+
+        /* ================= MISSION ================= */
+
+        .section {
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .section h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            color: #666666;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .section ul {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+
+        .section li {
+            color: #666666;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 5px;
+        }
+
+        /* ================= START ================= */
+
+        .start-area {
+            margin-top: 30px;
+            background: #2C2C2C;
+            padding: 20px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .start-text strong {
+            display: block;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .start-text span {
+            color: #aaaaaa;
+            font-size: 11px;
+        }
+
+        .start-btn {
+            background: #853953;
+            color: white;
+            text-decoration: none;
+            padding: 13px 22px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .start-btn:hover {
+            background: #612D53;
+        }
+
+        /* ================= HINTS ================= */
+
+        .hint {
+            border: 1px solid #dddddd;
+            margin-top: 12px;
+            background: #fafafa;
+        }
+
+        .hint summary {
+            cursor: pointer;
+            padding: 14px 16px;
+            color: #853953;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .hint p {
+            padding: 0 16px 16px;
+            color: #666666;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ================= RESOURCES ================= */
+
+        .resource {
+            display: inline-block;
+            margin-top: 8px;
+            margin-right: 8px;
+            padding: 9px 13px;
+            border: 1px solid #853953;
+            color: #853953;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .7px;
+        }
+
+        .resource:hover {
+            background: #853953;
+            color: white;
+        }
+
+        /* ================= SUBMIT ================= */
+
+        .submit-box {
+            margin-top: 35px;
+            padding: 25px;
+            background: #2C2C2C;
+            border-top: 4px solid #853953;
+        }
+
+        .submit-box h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .submit-box p {
+            color: #aaaaaa;
+            font-size: 12px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .submit-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .submit-form input {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #555555;
+            background: #1f1f1f;
+            color: white;
+            outline: none;
+            font-family: monospace;
+        }
+
+        .submit-form input:focus {
+            border-color: #853953;
+        }
+
+        .submit-form button {
+            padding: 13px 20px;
+            border: none;
+            background: #853953;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .submit-form button:hover {
+            background: #612D53;
+        }
+
+        .flag-note {
+            margin-top: 12px;
+            color: #999999;
+            font-size: 10px;
+        }
+
+        /* ================= SOLVED ================= */
+
+        .solved-box {
+            margin-top: 35px;
+            padding: 25px;
+            background: #2C2C2C;
+            border-top: 4px solid #853953;
+        }
+
+        .solved-box h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .solved-box p {
+            color: #aaaaaa;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .solved-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 12px;
+            background: #853953;
+            color: white;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: #2C2C2C;
+            color: #aaaaaa;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer strong {
+            color: white;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .main {
+                padding: 40px 18px 60px;
+            }
+
+            .main h1 {
+                font-size: 36px;
+            }
+
+            .challenge-top {
+                align-items: flex-start;
+                gap: 15px;
+                flex-direction: column;
+            }
+
+            .info {
+                gap: 25px;
+                flex-wrap: wrap;
+            }
+
+            .start-area {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .start-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .submit-form {
+                flex-direction: column;
+            }
+
+            .submit-form button {
+                width: 100%;
+            }
+
+            .footer {
+                display: block;
+                line-height: 2;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        CYBER <span>ARENA</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">
+            DASHBOARD
+        </a>
+
+        <a href="/challenges">
+            CHALLENGES
+        </a>
+
+        <a href="/leaderboard">
+            LEADERBOARD
+        </a>
+
+    </div>
+
+    <a href="/logout" class="logout">
+        LOGOUT
+    </a>
+
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <a href="/challenges" class="back">
+        ← BACK TO DOMAINS
+    </a>
+
+
+    <div class="eyebrow">
+        CYBER ARENA / {{ challenge["category"]|upper }}
+    </div>
+
+
+    <h1>
+        {{ challenge["title"] }}
+    </h1>
+
+
+    <p class="intro">
+        Investigate the challenge, identify the vulnerability,
+        analyze the available evidence and capture the hidden flag.
+    </p>
+
+
+    <!-- ================= CHALLENGE CARD ================= -->
+
+    <section class="challenge">
+
+        <div class="challenge-top">
+
+            <div class="challenge-label">
+                FLAGSHIP CHALLENGE
+            </div>
+
+            <div class="difficulty">
+                {{ challenge["difficulty"]|upper }}
+            </div>
+
+        </div>
+
+
+        <div class="challenge-body">
+
+
+            <h2>
+                {{ challenge["title"] }}
+            </h2>
+
+
+            <p class="description">
+                {{ challenge["description"] }}
+            </p>
+
+
+            <!-- ================= INFO ================= -->
+
+            <div class="info">
+
+                <div class="info-item">
+
+                    <small>
+                        DIFFICULTY
+                    </small>
+
+                    <strong>
+                        {{ challenge["difficulty"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <small>
+                        POINTS
+                    </small>
+
+                    <strong>
+                        {{ challenge["points"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <small>
+                        DOMAIN
+                    </small>
+
+                    <strong>
+                        {{ challenge["category"] }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= START ================= -->
+
+            <div class="start-area">
+
+                <div class="start-text">
+
+                    <strong>
+                        Ready to enter the challenge?
+                    </strong>
+
+                    <span>
+                        Investigate the target and find the flag.
+                    </span>
+
+                </div>
+
+                {% if challenge["lab_url"] %}
+
+                    <a
+                        href="{{ challenge['lab_url'] }}"
+                        target="_blank"
+                        rel="noopener"
+                        class="start-btn">
+
+                        LAUNCH LAB →
+
+                    </a>
+
+                {% else %}
+
+                    <a
+                        href="#mission"
+                        class="start-btn">
+
+                        START CHALLENGE →
+
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ================= MISSION ================= -->
+
+            <div class="section" id="mission">
+
+                <h3>
+                    Mission
+                </h3>
+
+                {% if challenge["category"] == "Web Exploitation" %}
+
+                    <p>
+                        Investigate the web application and determine
+                        whether a user-controlled identifier can expose
+                        another user's profile.
+                    </p>
+
+                {% elif challenge["category"] == "Cryptography" %}
+
+                    <p>
+                        Analyze the encrypted messages, identify the
+                        weakness in the cipher and recover the hidden flag.
+                    </p>
+
+                {% elif challenge["category"] == "Digital Forensics" %}
+
+                    <p>
+                        Examine the supplied evidence and recover the
+                        information hidden inside the captured data.
+                    </p>
+
+                {% elif challenge["category"] == "OSINT" %}
+
+                    <p>
+                        Connect publicly available clues and determine
+                        the information hidden across the available sources.
+                    </p>
+
+                {% elif challenge["category"] == "Reverse Engineering" %}
+
+                    <p>
+                        Analyze the binary, understand its license
+                        validation logic and determine the expected input.
+                    </p>
+
+                {% elif challenge["category"] == "Pwn" %}
+
+                    <p>
+                        Examine the vulnerable program and determine how
+                        uncontrolled input can affect the program's execution.
+                    </p>
+
+                {% elif challenge["category"] == "Steganography" %}
+
+                    <p>
+                        Inspect the supplied audio evidence and uncover
+                        information hidden outside normal audible content.
+                    </p>
+
+                {% elif challenge["category"] == "Mobile Security" %}
+
+                    <p>
+                        Examine the Android application and investigate
+                        its resources and application logic for hidden data.
+                    </p>
+
+                {% elif challenge["category"] == "Blockchain / Web3" %}
+
+                    <p>
+                        Analyze the smart contract and identify the
+                        vulnerability in the withdrawal process.
+                    </p>
+
+                {% elif challenge["category"] == "Miscellaneous" %}
+
+                    <p>
+                        Analyze the encoded output and repeatedly decode
+                        the data until the hidden flag is revealed.
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Analyze the challenge carefully and capture
+                        the hidden flag.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ================= HINTS ================= -->
+
+            <div class="section">
+
+                <h3>
+                    Hints
+                </h3>
+
+
+                {% if challenge["category"] == "Web Exploitation" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — USER IDENTIFICATION
+                        </summary>
+
+                        <p>
+                            Look closely at how the application
+                            identifies users.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — ACCESS CONTROL
+                        </summary>
+
+                        <p>
+                            Can a user-controlled identifier access
+                            another profile?
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Cryptography" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — REPETITION
+                        </summary>
+
+                        <p>
+                            Look for repetition in the encrypted message.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — KEY
+                        </summary>
+
+                        <p>
+                            The same short key may be used more than once.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Digital Forensics" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — FILE TYPE
+                        </summary>
+
+                        <p>
+                            Start by identifying what kind of file
+                            you actually received.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — HIDDEN DATA
+                        </summary>
+
+                        <p>
+                            File metadata and hidden content may reveal
+                            more than expected.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "OSINT" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — CONNECTIONS
+                        </summary>
+
+                        <p>
+                            Small pieces of public information can
+                            connect different accounts.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — SEARCH
+                        </summary>
+
+                        <p>
+                            Search the unique clues rather than
+                            the person's name alone.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Reverse Engineering" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — BINARY
+                        </summary>
+
+                        <p>
+                            Start by examining the binary's strings
+                            and structure.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — LICENSE
+                        </summary>
+
+                        <p>
+                            Follow the license-validation logic to
+                            understand what input it expects.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Pwn" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — MEMORY
+                        </summary>
+
+                        <p>
+                            Look at how user input is stored in memory.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — OVERFLOW
+                        </summary>
+
+                        <p>
+                            What happens when the input is larger
+                            than the program expects?
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Steganography" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — AUDIO
+                        </summary>
+
+                        <p>
+                            Don't judge an audio file only by
+                            what you can hear.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — SPECTROGRAM
+                        </summary>
+
+                        <p>
+                            Inspect the file using a spectrogram.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Mobile Security" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — APK
+                        </summary>
+
+                        <p>
+                            An APK is more than just an app
+                            you can install.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — APPLICATION LOGIC
+                        </summary>
+
+                        <p>
+                            Examine its resources and application
+                            logic for secrets.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Blockchain / Web3" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — CONTRACT LOGIC
+                        </summary>
+
+                        <p>
+                            Read the contract logic before
+                            interacting with it.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — WITHDRAWAL ORDER
+                        </summary>
+
+                        <p>
+                            Look carefully at the order of the
+                            external call and the balance update.
+                        </p>
+                    </details>
+
+
+                {% elif challenge["category"] == "Miscellaneous" %}
+
+                    <details class="hint">
+                        <summary>
+                            HINT 01 — ENCODING
+                        </summary>
+
+                        <p>
+                            One layer of encoding may be
+                            hiding another.
+                        </p>
+                    </details>
+
+                    <details class="hint">
+                        <summary>
+                            HINT 02 — REPEAT
+                        </summary>
+
+                        <p>
+                            Decode the output repeatedly until
+                            the data stops looking encoded.
+                        </p>
+                    </details>
+
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ================= RESOURCES ================= -->
+
+            <div class="section">
+
+                <h3>
+                    Resources
+                </h3>
+
+                {% if challenge["category"] == "Digital Forensics" %}
+
+                    <a
+                        href="/download/forensics/pcap"
+                        class="resource">
+
+                        DOWNLOAD PCAP
+
+                    </a>
+
+                    <a
+                        href="/download/forensics/evidence"
+                        class="resource">
+
+                        DOWNLOAD EVIDENCE
+
+                    </a>
+
+
+                {% elif challenge["category"] == "Reverse Engineering" %}
+
+                    <a
+                        href="/download/reverse/blackbox"
+                        class="resource">
+
+                        DOWNLOAD BINARY
+
+                    </a>
+
+
+                {% elif challenge["category"] == "Pwn" %}
+
+                    <a
+                        href="/download/pwn/stack_attack"
+                        class="resource">
+
+                        DOWNLOAD BINARY
+
+                    </a>
+
+
+                {% elif challenge["category"] == "Steganography" %}
+
+                    <a
+                        href="/download/stego/audio"
+                        class="resource">
+
+                        DOWNLOAD AUDIO
+
+                    </a>
+
+
+                {% elif challenge["category"] == "Blockchain / Web3" %}
+
+                    <a
+                        href="/download/blockchain/contract"
+                        class="resource">
+
+                        DOWNLOAD CONTRACT
+
+                    </a>
+
+                {% elif challenge["category"] == "OSINT" %}
+
+                    <a
+                        href="/download/osint/evidence"
+                        class="resource">
+
+                        VIEW EVIDENCE
+
+                    </a>
+
+                {% else %}
+
+                    <p>
+                        No additional downloadable resources are required
+                        for this challenge.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ================= SUBMISSION ================= -->
+
+            {% if solved %}
+
+                <div class="solved-box">
+
+                    <h3>
+                        Challenge Solved ✓
+                    </h3>
+
+                    <p>
+                        You have already captured this flag
+                        and earned the points.
+                    </p>
+
+                    <div class="solved-badge">
+                        COMPLETED
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <div class="submit-box">
+
+                    <h3>
+                        Submit Flag
+                    </h3>
+
+                    <p>
+                        Found the flag?
+                        Submit it below.
+                    </p>
+
+                    <form
+                        method="POST"
+                        action="/challenge/{{ challenge['id'] }}/submit"
+                        class="submit-form">
+
+                        <input
+                            type="text"
+                            name="flag"
+                            placeholder="TECH{your_flag_here}"
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button type="submit">
+                            SUBMIT FLAG
+                        </button>
+
+                    </form>
+
+                    <div class="flag-note">
+                        Flags are case-sensitive.
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div>
+        <strong>CYBER ARENA</strong>
+        / CHALLENGE SYSTEM
+    </div>
+
+    <div>
+        FIND THE VULNERABILITY. CAPTURE THE FLAG.
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

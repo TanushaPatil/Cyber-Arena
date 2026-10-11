@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Challenges | Cyber Arena</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F3F4F4;
+            color: #2C2C2C;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 70px;
+
+            background: #2C2C2C;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 55px;
+
+            border-bottom: 3px solid #853953;
+        }
+
+        .logo {
+            color: white;
+
+            font-size: 20px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: #853953;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: .8px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .logout {
+            background: #853953;
+
+            color: white;
+
+            padding: 10px 18px;
+
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .logout:hover {
+            background: #612D53;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: #2C2C2C;
+
+            color: white;
+
+            padding: 70px 30px;
+
+            border-bottom: 1px solid #444;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #853953;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #853953;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: #c5c5c5;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= STATS ================= */
+
+        .hero-stats {
+            display: flex;
+
+            gap: 45px;
+
+            margin-top: 35px;
+        }
+
+        .hero-stat strong {
+            display: block;
+
+            font-size: 25px;
+
+            color: white;
+        }
+
+        .hero-stat span {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #999999;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .main {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 55px 30px 80px;
+        }
+
+        .section-heading {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-end;
+
+            margin-bottom: 30px;
+        }
+
+        .section-number {
+            color: #853953;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            max-width: 420px;
+
+            color: #777777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            text-align: right;
+        }
+
+
+        /* ================= DOMAIN GRID ================= */
+
+        .domain-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* ================= CARD ================= */
+
+        .domain-card {
+            background: white;
+
+            border: 1px solid #dddddd;
+
+            min-height: 245px;
+
+            display: flex;
+
+            transition: .2s;
+        }
+
+        .domain-card:hover {
+            border-color: #853953;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 12px 30px rgba(44, 44, 44, .08);
+        }
+
+        .number {
+            width: 65px;
+
+            background: #2C2C2C;
+
+            color: #853953;
+
+            display: flex;
+
+            justify-content: center;
+
+            padding-top: 24px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            padding: 25px;
+
+            flex: 1;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .category {
+            color: #853953;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 10px;
+
+            text-transform: uppercase;
+        }
+
+        .domain-card h3 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #777777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            max-width: 500px;
+        }
+
+
+        /* ================= META ================= */
+
+        .meta {
+            display: flex;
+
+            gap: 30px;
+
+            margin-top: auto;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #eeeeee;
+        }
+
+        .meta-item small {
+            display: block;
+
+            color: #999999;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 5px;
+        }
+
+        .meta-item strong {
+            color: #2C2C2C;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= ENTER BUTTON ================= */
+
+        .enter {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 18px;
+
+            background: #853953;
+
+            color: white;
+
+            padding: 12px 15px;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            transition: .2s;
+        }
+
+        .enter:hover {
+            background: #612D53;
+        }
+
+        .enter span {
+            font-size: 16px;
+        }
+
+
+        /* ================= BOTTOM ================= */
+
+        .bottom {
+            background: #2C2C2C;
+
+            color: #bbbbbb;
+
+            padding: 18px 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+        }
+
+        .online {
+            color: white;
+        }
+
+        .dot {
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            background: #853953;
+
+            border-radius: 50%;
+
+            margin-right: 7px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading p {
+                text-align: left;
+
+                margin-top: 12px;
+            }
+
+            .domain-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero-stats {
+                gap: 25px;
+            }
+
+            .hero-stat strong {
+                font-size: 20px;
+            }
+
+            .main {
+                padding: 40px 18px 60px;
+            }
+
+            .number {
+                width: 48px;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .domain-card h3 {
+                font-size: 19px;
+            }
+
+            .bottom {
+                display: block;
+
+                line-height: 2;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        CYBER <span>ARENA</span>
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/dashboard">
+            DASHBOARD
+        </a>
+
+        <a href="/challenges" class="active">
+            CHALLENGES
+        </a>
+
+        <a href="/leaderboard">
+            LEADERBOARD
+        </a>
+
+    </div>
+
+
+    <a href="/logout" class="logout">
+        LOGOUT
+    </a>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div class="eyebrow">
+            CYBER ARENA / CTF CHALLENGES
+        </div>
+
+        <h1>
+            CHOOSE YOUR
+            <span>TARGET.</span>
+        </h1>
+
+        <p>
+            Explore cybersecurity challenges across ten different
+            domains. Investigate the evidence, exploit the weakness,
+            solve the puzzle and capture the flag.
+        </p>
+
+
+        <div class="hero-stats">
+
+            <div class="hero-stat">
+
+                <strong>10</strong>
+
+                <span>
+                    DOMAINS
+                </span>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <strong>10</strong>
+
+                <span>
+                    FLAGSHIP CHALLENGES
+                </span>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <strong>∞</strong>
+
+                <span>
+                    SKILLS TO BUILD
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="section-number">
+                01 / SELECT DOMAIN
+            </div>
+
+            <h2>
+                CTF DOMAINS
+            </h2>
+
+        </div>
+
+        <p>
+            One flagship challenge per domain.
+            Pick a target and start investigating.
+        </p>
+
+    </div>
+
+
+
+    <!-- ================= DOMAIN CARDS ================= -->
+
+    <div class="domain-grid">
+
+
+        {% for category in categories %}
+
+        <article class="domain-card">
+
+
+            <div class="number">
+
+                {{ "%02d"|format(loop.index) }}
+
+            </div>
+
+
+            <div class="card-content">
+
+
+                <div>
+
+                    <div class="category">
+                        {{ category["category"] }}
+                    </div>
+
+
+                    <h3>
+                        {{ category["category"] }}
+                    </h3>
+
+
+                    <p class="description">
+                        {{ category["description"] }}
+                    </p>
+
+                </div>
+
+
+                <div class="meta">
+
+
+                    <div class="meta-item">
+
+                        <small>
+                            CHALLENGES
+                        </small>
+
+                        <strong>
+                            {{ category["challenge_count"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="meta-item">
+
+                        <small>
+                            AVAILABLE POINTS
+                        </small>
+
+                        <strong>
+                            {{ category["points"] }} PTS
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                
+            <a
+    href="{{ url_for(
+        'challenge_by_slug',
+        slug=category['slug']
+    ) }}"
+    class="enter">
+
+    ENTER DOMAIN
+
+    <span>
+        →
+    </span>
+
+</a>
+
+            </div>
+
+
+        </article>
+
+        {% endfor %}
+
+
+    </div>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bottom">
+
+    <div class="online">
+
+        <span class="dot"></span>
+
+        CYBER ARENA SYSTEM ONLINE
+
+    </div>
+
+
+    <div>
+        FIND THE VULNERABILITY. CAPTURE THE FLAG.
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Cyber Arena</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F3F4F4;
+            color: #2C2C2C;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 70px;
+
+            background: #2C2C2C;
+
+            display: flex;
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 55px;
+
+            border-bottom: 3px solid #853953;
+        }
+
+        .logo {
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: #853953;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.8px;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .logout {
+            color: white;
+
+            background: #853953;
+
+            padding: 10px 18px;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .logout:hover {
+            background: #612D53;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .main {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 50px 30px 70px;
+        }
+
+
+        /* ================= WELCOME ================= */
+
+        .welcome {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-end;
+
+            margin-bottom: 35px;
+        }
+
+        .eyebrow {
+            color: #853953;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .welcome h1 {
+            font-size: 42px;
+
+            letter-spacing: -1.5px;
+
+            color: #2C2C2C;
+        }
+
+        .welcome h1 span {
+            color: #853953;
+        }
+
+        .welcome p {
+            margin-top: 10px;
+
+            color: #777777;
+
+            font-size: 14px;
+        }
+
+        .user-role {
+            color: #612D53;
+
+            background: #eadde3;
+
+            padding: 8px 13px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ================= STATS ================= */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 45px;
+        }
+
+        .stat-card {
+            background: white;
+
+            border: 1px solid #dddddd;
+
+            padding: 25px;
+
+            min-height: 135px;
+
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 4px;
+            height: 100%;
+
+            background: #853953;
+        }
+
+        .stat-label {
+            color: #888888;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 15px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+
+            font-weight: 800;
+
+            color: #2C2C2C;
+        }
+
+        .stat-small {
+            color: #999999;
+
+            font-size: 11px;
+
+            margin-top: 6px;
+        }
+
+
+        /* ================= CONTENT ================= */
+
+        .content-grid {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr;
+
+            gap: 22px;
+        }
+
+        .panel {
+            background: white;
+
+            border: 1px solid #dddddd;
+        }
+
+        .panel-header {
+            padding: 20px 24px;
+
+            border-bottom: 1px solid #eeeeee;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .panel-header h2 {
+            font-size: 17px;
+
+            color: #2C2C2C;
+        }
+
+        .panel-header span {
+            color: #853953;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        /* ================= QUICK ACTIONS ================= */
+
+        .actions {
+            padding: 22px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 14px;
+        }
+
+        .action {
+            min-height: 125px;
+
+            border: 1px solid #dddddd;
+
+            padding: 20px;
+
+            text-decoration: none;
+
+            color: #2C2C2C;
+
+            transition: 0.2s;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+        }
+
+        .action:hover {
+            border-color: #853953;
+
+            transform: translateY(-2px);
+        }
+
+        .action-number {
+            color: #853953;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .action h3 {
+            font-size: 17px;
+
+            margin-top: 12px;
+        }
+
+        .action p {
+            color: #777777;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            margin-top: 7px;
+        }
+
+        .action-arrow {
+            color: #853953;
+
+            font-size: 18px;
+
+            align-self: flex-end;
+        }
+
+
+        /* ================= PROFILE ================= */
+
+        .profile {
+            padding: 24px;
+        }
+
+        .profile-row {
+            padding: 14px 0;
+
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .profile-row:last-child {
+            border-bottom: none;
+        }
+
+        .profile-row small {
+            display: block;
+
+            color: #999999;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 5px;
+        }
+
+        .profile-row strong {
+            font-size: 14px;
+
+            color: #2C2C2C;
+        }
+
+
+        /* ================= BOTTOM ================= */
+
+        .system-bar {
+            margin-top: 25px;
+
+            background: #2C2C2C;
+
+            color: #cccccc;
+
+            padding: 16px 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        .online {
+            color: #ffffff;
+        }
+
+        .online-dot {
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            background: #853953;
+
+            border-radius: 50%;
+
+            margin-right: 7px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .welcome {
+                display: block;
+            }
+
+            .user-role {
+                display: inline-block;
+
+                margin-top: 15px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .main {
+                padding: 35px 18px;
+            }
+
+            .welcome h1 {
+                font-size: 34px;
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        CYBER <span>ARENA</span>
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/" >
+            HOME
+        </a>
+
+        <a href="/dashboard" class="active">
+            DASHBOARD
+        </a>
+
+        <a href="/challenges">
+            CHALLENGES
+        </a>
+
+        <a href="/leaderboard">
+            LEADERBOARD
+        </a>
+
+    </div>
+
+
+    <a href="/logout" class="logout">
+        LOGOUT
+    </a>
+
+</nav>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+        <div>
+
+            <div class="eyebrow">
+                PARTICIPANT DASHBOARD / 01
+            </div>
+
+            <h1>
+                Welcome,
+                <span>{{ user["username"] }}</span>
+            </h1>
+
+            <p>
+                Your Cyber Arena journey starts here.
+                Choose a challenge and capture your first flag.
+            </p>
+
+        </div>
+
+
+        <div class="user-role">
+            {{ user["role"]|upper }}
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                TOTAL POINTS
+            </div>
+
+            <div class="stat-value">
+                {{ user["points"] }}
+            </div>
+
+            <div class="stat-small">
+                Keep solving to increase your score.
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                CTF DOMAINS
+            </div>
+
+            <div class="stat-value">
+                10
+            </div>
+
+            <div class="stat-small">
+                Explore different security areas.
+            </div>
+
+        </div>
+
+    
+
+    </section>
+
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="content-grid">
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Quick Access
+                </h2>
+
+                <span>
+                    SELECT YOUR NEXT MOVE
+                </span>
+
+            </div>
+
+
+            <div class="actions">
+
+
+                <a href="/challenges" class="action">
+
+                    <div>
+
+                        <div class="action-number">
+                            01 / EXPLORE
+                        </div>
+
+                        <h3>
+                            CTF Challenges
+                        </h3>
+
+                        <p>
+                            Enter the challenge arena and
+                            choose a cybersecurity domain.
+                        </p>
+
+                    </div>
+
+                    <div class="action-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+
+                <a href="/leaderboard" class="action">
+
+                    <div>
+
+                        <div class="action-number">
+                            02 / COMPETE
+                        </div>
+
+                        <h3>
+                            Leaderboard
+                        </h3>
+
+                        <p>
+                            Track your score and see the
+                            competition.
+                        </p>
+
+                    </div>
+
+                    <div class="action-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+
+                <a href="/challenges" class="action">
+
+                    <div>
+
+                        <div class="action-number">
+                            03 / LEARN
+                        </div>
+
+                        <h3>
+                            Security Domains
+                        </h3>
+
+                        <p>
+                            Web, Crypto, Forensics, OSINT,
+                            Pwn and more.
+                        </p>
+
+                    </div>
+
+                    <div class="action-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+
+                <a href="/challenges" class="action">
+
+                    <div>
+
+                        <div class="action-number">
+                            04 / SOLVE
+                        </div>
+
+                        <h3>
+                            Capture Flags
+                        </h3>
+
+                        <p>
+                            Investigate the problem and
+                            submit the hidden flag.
+                        </p>
+
+                    </div>
+
+                    <div class="action-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROFILE -->
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Your Profile
+                </h2>
+
+                <span>
+                    ACCOUNT
+                </span>
+
+            </div>
+
+
+            <div class="profile">
+
+
+                <div class="profile-row">
+
+                    <small>
+                        USERNAME
+                    </small>
+
+                    <strong>
+                        {{ user["username"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <small>
+                        EMAIL
+                    </small>
+
+                    <strong>
+                        {{ user["email"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <small>
+                        ROLE
+                    </small>
+
+                    <strong>
+                        {{ user["role"]|capitalize }}
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <small>
+                        ACCOUNT STATUS
+                    </small>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- SYSTEM BAR -->
+
+    <div class="system-bar">
+
+        <div class="online">
+            <span class="online-dot"></span>
+            CYBER ARENA SYSTEM ONLINE
+        </div>
+
+        <div>
+            LEARN / SOLVE / CAPTURE / COMPETE
+        </div>
+
+    </div>
+
+
+</main>
+
+
+</body>
+</html>
