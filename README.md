@@ -3,6 +3,7 @@ python -m venv venv
 
 # Windows
 venv\Scripts\activate
+
 pip install -r requirements.txt
 
 # 2. Run the application
